@@ -1,0 +1,7 @@
+
+class_label,distance_from_beginning,distance_from_end,contains_digit,capitalized
+B,1,10,1,0
+M,10,1,0,1
+C,2,3,0,1
+S,23,2,0,0
+N,12,0,0,1

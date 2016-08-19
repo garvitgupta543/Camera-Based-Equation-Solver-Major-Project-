@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical" >
+
+    <SurfaceView
+        android:id="@+id/SurfaceView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:layout_width="327dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center" >
+
+        <EditText
+            android:id="@+id/equation"
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:layout_gravity="top"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:visibility="invisible" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="Confirm" 
+            android:visibility="invisible"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="261dp"
+        android:layout_height="168dp"
+        android:layout_gravity="bottom"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/solveP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Solve Printed" />
+
+            <Button
+                android:id="@+id/solveHW"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Solve Hand Written" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

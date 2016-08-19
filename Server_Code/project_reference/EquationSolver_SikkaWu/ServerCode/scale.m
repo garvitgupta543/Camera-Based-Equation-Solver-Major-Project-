@@ -1,0 +1,2 @@
+clc,clear
+system('G:\project_reference\libsvm\windows\svm-scale -l -1 -u 1 -s range G:\project_reference\EquationSolver_SikkaWu\ServerCode\libSVM\NewDataScale > G:\project_reference\EquationSolver_SikkaWu\ServerCode\libSVM\NewDataScale1');

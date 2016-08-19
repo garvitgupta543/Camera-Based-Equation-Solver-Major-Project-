@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/selectimage"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:onClick="selectImage"
+                android:text="Select Image"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/OCR"
+                android:layout_toLeftOf="@+id/OCR" />
+
+            <Button
+                android:id="@+id/OCR"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="OCR"
+                android:onClick="performOCR"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="250dp"
+                android:layout_below="@+id/selectimage"
+
+                android:src="@drawable/black" />
+
+            <Button
+                android:id="@+id/enhance"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+
+                android:onClick="Enhance"
+                android:text="Enhance"
+                android:layout_below="@+id/imageView1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/OCR"
+                android:layout_toLeftOf="@+id/OCR" />
+
+            <Button
+                android:id="@+id/calculate"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:onClick="calculate"
+                android:text="Calculate"
+                android:layout_alignTop="@+id/enhance"
+                android:layout_toRightOf="@+id/enhance"
+                android:layout_toLeftOf="@+id/undo"
+                android:layout_toStartOf="@+id/undo" />
+
+            <EditText
+                android:id="@+id/field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:hint="OCR Text here"
+                android:layout_below="@+id/enhance"
+                android:background="#ffffff"
+                android:layout_alignParentBottom="true">
+
+
+                <requestFocus />
+            </EditText>
+
+            <Button
+                android:id="@+id/undo"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="Undo"
+                android:onClick="Undo"
+                android:layout_above="@+id/field"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

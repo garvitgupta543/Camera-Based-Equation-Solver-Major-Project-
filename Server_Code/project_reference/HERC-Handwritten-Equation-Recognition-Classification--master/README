@@ -1,0 +1,189 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+codes!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+proto.m  //(in progress, very messy) prototype 
+
+svmResults //classification based on SVM using vlfeat, adapted from a vlfeat example
+
+results.m // does classification using logistic regression
+
+getDataMat.m // takes optional arg and returns data_x matrix of HOG-ified samples, 
+             // data_y matrix of corresponding classes
+
+preprocess.m // writes new preprocessed images for all images in a folder
+
+removeborder.m //removes border 
+
+segmeter2.m //bounding box stuff, returns Character struct of bounding box locations
+
+extract.m //extracts character from bounding box from segmenter2, turns into matrix
+
+parse.py //parses a matrix into LaTeX, outputs to .tex file
+
+getClass.m //returns the class of a sample given a filename
+
+makeHoldout.py //takes random subset of data for holdout data
+
+synth.m // (in progress) synthetic data creation through linear transformations?
+
+HOG.m // Histogram of Oriented Gradients code
+
+lrCostFunction.m // Computes cost and gradient for logistic regression with regularization
+
+oneVsAll.m  //trains multiple logistic regression classifiers and returns all
+             //the classifiers in a matrix all_theta, where the i-th row of
+             //all_theta corresponds to the classifier for label i.
+             // uses fmincg
+
+fmincg.m //crazy minimization function for oneVsAll.m
+
+
+predictOneVsAll.m // Predicts whether the label is 0 or 1 using learned logistic 
+                  // regression parameters all_theta from ex3.m
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+IMAGES!: 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+data/     
+
+      Caltech-101/  //folders for each class's files
+           
+      old trains/   //old svm stuff
+______________________________________________________________________________
+//folder of formulas to test on
+
+fakeFormula/ 
+
+______________________________________________________________________________
+//folder of processed data
+
+dataset_proc/ 
+
+            oren_#.jpg //pre-processed file created by preprocess, 
+                       //used in getDataMat.m
+
+______________________________________________________________________________
+//folder of raw data
+
+dataset_raw/     
+
+              ds_#.jpg // original scans of handwritten dataset
+              sample_10x10grid.png //grid used to make dataset
+
+______________________________________________________________________________
+//folder of output of extracted
+
+extracted/     
+
+              #.jpg 
+
+        __________________________
+        formula1/
+                extracted formula test samples
+
+        __________________________
+        formula1Filtered/
+                extracted formula test samples,pruned to be only correct ones
+
+
+______________________________________________________________________________
+//folder of logic images
+
+logic/
+
+        images of logic symbols
+        __________________________
+        formula/
+                some formula test samples
+
+______________________________________________________________________________
+//folder of misc images
+
+misc/      
+
+     155pipeline.xml  //pipeline diagram
+                      //made with http://www.diagram.ly/
+
+     155pipeline.png  //pipeline diagram at current phase
+
+     accuracies.txt  // file with accuracies for different lambda values
+
+______________________________________________________________________________
+//folder of plots made during project
+
+plots/    
+
+     lambdaVSacc#.jpg  //plot of lambda parameter in results.m
+                       //         vs mean Cross-validation accuracy
+
+______________________________________________________________________________
+//folder for localization/bounding box output pics
+
+segmenter_output/        
+    
+                InftyBOX#  //infty dataset example with bounding boxes from 
+                           //     segmenter2
+ 
+
+______________________________________________________________________________
+//folder for testing formula data 
+
+fakeFormula/
+
+            /funct#
+
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+.mat files!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+hog_theta_cvf2.mat //theta matrix of best accuracy cross-validation fold (fold 2)
+                   //used HOG data
+
+mistakes.mat //confusion matrix of mistakes made by classifier,
+            // true value is rows, false is cols. 
+            // z-axis is different cross-validation folds
+
+
+data_x.mat //saved current versions of the data_x produced by getDataMat.m 
+           // (HOG features)
+
+data_y.mat //saved current versions of the data_y produced by getDataMat.m
+
+plain_pixels_data_x //saved version of data_x that wasn't passed through any feature
+                    //extractors. size = 1000x24963
+
+parse.mat   //toy matrix for testing parse.py
+
+//used to generate plots
+lambda_test_acc_x.mat //vector of lambda values for regularized logistic regression
+                      //    tested in results.m
+
+lambda_test_acc_y.mat //vector of Cross validation mean accuracy for regularized 
+                      //    logistic regression tested in results.m
+
+all_theta_toy.mat // this is a saved version of theta for the classifier
+
+logic_theta5class.mat //theta for 5 classes:
+                      //forAll,exist,x,y,R
+
+logic_x             // HOG data for logic symbols
+logic_y             // class values for logic symbols
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+need to sort after changing a lot of folders!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+//output of parse.py
+test.tex
+
+//made from test.tex
+test.pdf
+test1.pdf
+
